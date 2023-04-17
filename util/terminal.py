@@ -1,3 +1,4 @@
+''' This file handles the CLI arguments. '''
 import argparse
 from . import MODELS
 

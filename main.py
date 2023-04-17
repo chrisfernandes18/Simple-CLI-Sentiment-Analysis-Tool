@@ -1,3 +1,4 @@
+''' This is the main file which handles the overall logic of the repo. '''
 from util import terminal, test_model, train_model, export_clf, import_clf
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -7,12 +8,15 @@ from sklearn.metrics import accuracy_score, classification_report
 
 def main():
     args = terminal.get_input()
+    
+    # if we are going to train a dataset
     if args.dataset:
         model_name = args.dataset.split(".")[0]
         print(f'Going to train model which will be called: {model_name}')
         classifier, vectorizer = train_model(args.dataset)
         export_clf(model_name, classifier, vectorizer)
     
+    # if we are going to try to predict the sentiment of something
     if args.sentence and args.model:
         print('Going to predict sentiment of given sentence.')
         classifier, vectorizer = import_clf(args.model)

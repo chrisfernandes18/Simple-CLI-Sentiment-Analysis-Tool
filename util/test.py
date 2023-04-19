@@ -27,7 +27,7 @@ def test_model(classifier, vectorizer, test_input: list, input_sentiment: list):
     y_pred = classifier.predict(X)
 
     # Print predicted sentiment
-    print('--------------------------------')
+    print('----------------------------------------------------------')
     print(f'Predicted seniment: {y_pred[0]}')
 
     # Evaluate the model

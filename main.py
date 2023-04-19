@@ -1,4 +1,5 @@
 ''' This is the main file which handles the overall logic of the repo. '''
+import sys
 from util import terminal, test_model, train_model, export_clf, import_clf
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -7,7 +8,11 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score, classification_report
 
 def main():
-    args = terminal.get_input()
+    parser, args = terminal.get_input()
+
+    if not len(sys.argv) > 1:
+        parser.print_help(sys.stderr)
+        sys.exit(1)
     
     # if we are going to train a dataset
     if args.dataset:

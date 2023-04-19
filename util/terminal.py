@@ -24,7 +24,7 @@ def get_input() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description='Predict sentiment of a given sentence on a trained model.')
     parser.add_argument('sentence', type=str, metavar='S', nargs='*', help='Sentence to give')
     parser.add_argument('-s', dest='sentiment', type=str, help='Optional: check correctness of the sentiment model.')
-    parser.add_argument('-m', dest='model', type=str, help=f'Model name - {", ".join(MODELS)}')
+    parser.add_argument('-m', dest='model', type=str, help=f'Current Models - {", ".join(MODELS)}')
     parser.add_argument('-td', dest='dataset', type=str, help='Train dataset using given dataset.')
     args = parser.parse_args()
-    return args
+    return parser, args
